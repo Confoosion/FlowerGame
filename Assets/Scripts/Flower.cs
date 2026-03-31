@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Flower : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Flower : MonoBehaviour, IBeginDragHandler
+// IDragHandler, IEndDragHandler
 {
     [SerializeField] private Image flowerImage;
     [SerializeField] private bool isPlanted;
@@ -29,11 +30,14 @@ public class Flower : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     {
         if(isPlanted && !finishedGrowing)
         {
-            growthTimer += Time.deltaTime;
-
-            if(growthTimer >= currentStage.timeToGrow)
+            if(currentPlot.IsWatered())
             {
-                NextStage();
+                growthTimer += Time.deltaTime;
+
+                if(growthTimer >= currentStage.timeToGrow)
+                {
+                    NextStage();
+                }
             }
         }
     }
@@ -91,19 +95,19 @@ public class Flower : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
         justSpawned = false;
 
-        offsetPosition = (Vector2)transform.position - eventData.position;
-        flowerImage.raycastTarget = false;
+        // offsetPosition = (Vector2)transform.position - eventData.position;
+        // flowerImage.raycastTarget = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = eventData.position + offsetPosition;
-    }
+    // public void OnDrag(PointerEventData eventData)
+    // {
+    //     transform.position = eventData.position + offsetPosition;
+    // }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        flowerImage.raycastTarget = true;
-    }
+    // public void OnEndDrag(PointerEventData eventData)
+    // {
+    //     flowerImage.raycastTarget = true;
+    // }
 
     public FlowerSO GetFlower()
     {

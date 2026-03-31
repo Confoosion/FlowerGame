@@ -173,7 +173,9 @@ MonoBehaviour:
   wateredColor: {r: 0.4056604, g: 0.3018486, b: 0.1549929, a: 1}
   unwateredColor: {r: 0.6509804, g: 0.49019608, b: 0.2627451, a: 1}
   isWatered: 0
-  waterDuration: 10
+  timeToWater: 2
+  waterLevel: 0
+  depletionScale: 0.1
 --- !u!114 &69482256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +469,9 @@ MonoBehaviour:
   wateredColor: {r: 0.4056604, g: 0.3018486, b: 0.1549929, a: 1}
   unwateredColor: {r: 0.6509804, g: 0.49019608, b: 0.2627451, a: 1}
   isWatered: 0
-  waterDuration: 10
+  timeToWater: 2
+  waterLevel: 0
+  depletionScale: 0.1
 --- !u!114 &539036226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +594,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &820832394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820832395}
+  m_Layer: 5
+  m_Name: Spout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &820832395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820832394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2086411423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 12, y: 1}
+  m_SizeDelta: {x: 7.5, y: 7.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &848341895
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +683,9 @@ MonoBehaviour:
   wateredColor: {r: 0.4056604, g: 0.3018486, b: 0.1549929, a: 1}
   unwateredColor: {r: 0.6509804, g: 0.49019608, b: 0.2627451, a: 1}
   isWatered: 0
-  waterDuration: 10
+  timeToWater: 2
+  waterLevel: 0
+  depletionScale: 0.1
 --- !u!114 &848341898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,6 +900,7 @@ RectTransform:
   - {fileID: 124124868}
   - {fileID: 1909153075}
   - {fileID: 1877606792}
+  - {fileID: 2086411423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -920,7 +962,9 @@ MonoBehaviour:
   wateredColor: {r: 0.4056604, g: 0.3018486, b: 0.1549929, a: 1}
   unwateredColor: {r: 0.6509804, g: 0.49019608, b: 0.2627451, a: 1}
   isWatered: 0
-  waterDuration: 10
+  timeToWater: 2
+  waterLevel: 0
+  depletionScale: 0.1
 --- !u!114 &1494699370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,6 +1167,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909153074}
   m_CullTransparentMesh: 1
+--- !u!1 &2086411422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086411423}
+  - component: {fileID: 2086411425}
+  - component: {fileID: 2086411424}
+  - component: {fileID: 2086411426}
+  - component: {fileID: 2086411427}
+  m_Layer: 5
+  m_Name: WateringCan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2086411423
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086411422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -7.5, y: 7.5, z: 7.5}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 820832395}
+  m_Father: {fileID: 1419752503}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 449, y: 52}
+  m_SizeDelta: {x: 32, y: 32}
+  m_Pivot: {x: 0.65, y: 0.5}
+--- !u!114 &2086411424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086411422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 6870051724437562239, guid: 64f5317d7bba63043a5c46dc611575d5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2086411425
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086411422}
+  m_CullTransparentMesh: 1
+--- !u!114 &2086411426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086411422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4c567b8a72854d83273404ae563ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  wateringCanImage: {fileID: 2086411424}
+  fullCan: {fileID: 6870051724437562239, guid: 64f5317d7bba63043a5c46dc611575d5, type: 3}
+  emptyCan: {fileID: -4182002978256048544, guid: 3c7867782fd744f45bc78aa54b569039, type: 3}
+  spoutTip: {fileID: 820832395}
+  WATER_CAPACITY: 10
+  waterAmount: 10
+--- !u!114 &2086411427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086411422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528e9d78abe512144a1740ec16284a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IDraggable
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
