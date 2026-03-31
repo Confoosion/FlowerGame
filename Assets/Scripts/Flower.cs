@@ -19,6 +19,7 @@ public class Flower : MonoBehaviour, IBeginDragHandler
 
     private bool justSpawned = true;
     private bool finishedGrowing;
+    private bool hasStem = true;
 
     void Start()
     {
@@ -69,6 +70,16 @@ public class Flower : MonoBehaviour, IBeginDragHandler
         }
     }
 
+    public void ShearFlower()
+    {
+        if(finishedGrowing)
+        {
+            flowerImage.sprite = flower.noStemSprite;
+            flowerImage.SetNativeSize();
+            hasStem = false;
+        }
+    }
+
     private void UpdateImage(FlowerSO.FlowerStage stage)
     {
         flowerImage.sprite = stage.stageSprite;
@@ -94,20 +105,7 @@ public class Flower : MonoBehaviour, IBeginDragHandler
         }
 
         justSpawned = false;
-
-        // offsetPosition = (Vector2)transform.position - eventData.position;
-        // flowerImage.raycastTarget = false;
     }
-
-    // public void OnDrag(PointerEventData eventData)
-    // {
-    //     transform.position = eventData.position + offsetPosition;
-    // }
-
-    // public void OnEndDrag(PointerEventData eventData)
-    // {
-    //     flowerImage.raycastTarget = true;
-    // }
 
     public FlowerSO GetFlower()
     {
@@ -117,5 +115,15 @@ public class Flower : MonoBehaviour, IBeginDragHandler
     public bool IsJustSpawned()
     {
         return(justSpawned);
+    }
+
+    public bool IsFullyGrown()
+    {
+        return(finishedGrowing);
+    }
+
+    public bool CheckStem()
+    {
+        return(hasStem);
     }
 }
