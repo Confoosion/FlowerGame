@@ -1,16 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class OrderSO : MonoBehaviour
+[CreateAssetMenu(fileName = "NewOrder", menuName = "Scriptable Objects/Order")]
+public class OrderSO : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [System.Serializable]
+    public class OrderItem
     {
-        
+        public FlowerSO flower;
+        public int quantity;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<OrderItem> items = new List<OrderItem>();
+    public float timeLimit = 60f; // 0 = no time limit
 }
