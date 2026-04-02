@@ -60,14 +60,6 @@ public class SoilPlot : MonoBehaviour, IDropHandler
                 waterLevel = 0f;
             }
         }
-        // else if(isBeingWatered)
-        // {
-        //     timer += Time.deltaTime;
-        //     if(timer >= timeToWater)
-        //     {
-        //         FinishedWateringSoil();
-        //     }
-        // }
     }
 
     public void WaterSoil(float scale = 1f)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5944847078720368151}
   - component: {fileID: 9183532049946590985}
   m_Layer: 5
-  m_Name: SeedSlot
+  m_Name: SeedSlot_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

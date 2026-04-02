@@ -20,6 +20,7 @@ public class Flower : MonoBehaviour, IBeginDragHandler
     private bool justSpawned = true;
     private bool finishedGrowing;
     private bool hasStem = true;
+    private ServingArea servingArea;
 
     void Start()
     {
@@ -104,6 +105,12 @@ public class Flower : MonoBehaviour, IBeginDragHandler
             currentPlot = null;
         }
 
+        if(servingArea != null)
+        {
+            servingArea.RemoveFlower(this);
+            servingArea = null;
+        }
+
         justSpawned = false;
     }
 
@@ -125,5 +132,10 @@ public class Flower : MonoBehaviour, IBeginDragHandler
     public bool CheckStem()
     {
         return(hasStem);
+    }
+
+    public void PutOnTable(ServingArea area)
+    {
+        servingArea = area;
     }
 }
