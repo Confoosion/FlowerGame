@@ -38,6 +38,11 @@ public class Customer : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Serve()
+    {
+        CustomerManager.Singleton.ServeCustomer(this);
+    }
+
     private void DisplayOrder()
     {
         foreach(Order.OrderItem item in currentOrder.items)

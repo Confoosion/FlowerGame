@@ -1132,7 +1132,19 @@ MonoBehaviour:
       m_Calls: []
   onOrderFulfilled:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1008390784}
+        m_TargetAssemblyTypeName: OrderManager, Assembly-CSharp
+        m_MethodName: RemoveOrder
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onOrderExpired:
     m_PersistentCalls:
       m_Calls: []
@@ -1369,13 +1381,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1008390783}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1909153078}
+        m_TargetAssemblyTypeName: ServingArea, Assembly-CSharp
+        m_MethodName: ServeToCustomer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1513,6 +1525,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1909153075}
+  - {fileID: 1286830106}
   - {fileID: 124124868}
   - {fileID: 1877606792}
   - {fileID: 553072476}
@@ -1522,8 +1536,6 @@ RectTransform:
   - {fileID: 2086411423}
   - {fileID: 1689557814}
   - {fileID: 472769292}
-  - {fileID: 1909153075}
-  - {fileID: 1286830106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1820,6 +1832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f57f394dbdcf844b63970aa54969ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  flowersOnTable: []
 --- !u!1001 &1952269518
 PrefabInstance:
   m_ObjectHideFlags: 0

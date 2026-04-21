@@ -24,4 +24,12 @@ public class ServingArea : MonoBehaviour, IDropHandler
     {
         flowersOnTable.Remove(flower);
     }
+
+    public void ServeToCustomer()
+    {
+        foreach(Flower flower in flowersOnTable)
+        {
+            OrderManager.Singleton.TryServeFlower(flower.GetFlower());
+        }
+    }
 }
