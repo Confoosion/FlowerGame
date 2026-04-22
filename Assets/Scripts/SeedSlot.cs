@@ -3,7 +3,8 @@ using UnityEngine.EventSystems;
 
 public class SeedSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] private GameObject flowerObject;
+    [SerializeField] private GameObject seedObject;
+    // [SerializeField] private GameObject flowerObject;
 
     private GameObject spawnedObject;
 
@@ -12,28 +13,26 @@ public class SeedSlot : MonoBehaviour, IDropHandler
         RefillSlot();
     }
 
-    void Update()
-    {
-        if(!spawnedObject.GetComponent<Flower>().IsJustSpawned())
-        {
-            RefillSlot();
-        }
-    }
+    // void Update()
+    // {
+    //     if(spawnedObject.GetComponent<IDraggable>().IsDragging())
+    //     {
+    //         RefillSlot();
+    //     }
+    // }
 
     public void RefillSlot()
     {
-        spawnedObject = Instantiate(flowerObject, transform.position, Quaternion.identity, transform);
+        spawnedObject = Instantiate(seedObject, transform.position, Quaternion.identity, transform);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
-        if(dropped.GetComponent<Flower>())
+        SeedBag seed = dropped.GetComponent<SeedBag>();
+        if(seed != null && seed.GetSeedBagSO() == seedObject.GetComponent<SeedBag>().GetSeedBagSO())
         {
-            if(dropped.GetComponent<Flower>().GetFlower() == flowerObject.GetComponent<Flower>().GetFlower())
-            {
-                Destroy(dropped);
-            }
+            Destroy(dropped);
         }
     }
 }

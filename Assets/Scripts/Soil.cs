@@ -1,16 +1,24 @@
 using UnityEngine;
-
-public class Soil : MonoBehaviour
+using UnityEngine.EventSystems;
+public class Soil : MonoBehaviour, IDropHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject plant;
+    private SelectHighlight selectHighlight;
+
+    void Awake()
     {
-        
+        selectHighlight = GetComponent<SelectHighlight>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDrop(PointerEventData eventData)
     {
-        
+        GameObject dropped = eventData.pointerDrag;
+        SeedBag droppedSeed = dropped.GetComponent<SeedBag>();
+        if(droppedSeed != null && plant == null)
+        {
+            dropped.GetComponent<IDraggable>().RemoveHighlight();
+            plant = droppedSeed.PlantSeed(transform);
+            selectHighlight.LockHighlight(true);
+        }
     }
 }

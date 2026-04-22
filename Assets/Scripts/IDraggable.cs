@@ -41,10 +41,15 @@ public class IDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 if(temp != null && temp != activeHighlight)
                 {
                     if(activeHighlight != null)
-                        activeHighlight.DisplayHighlight(false);
-                    
-                    activeHighlight = temp;
-                    activeHighlight.DisplayHighlight(true);
+                    {
+                        RemoveHighlight();
+                    }
+                
+                    if(!temp.IsHighlightLocked())
+                    {
+                        activeHighlight = temp;
+                        activeHighlight.DisplayHighlight(true);
+                    }
                 }
             }
         }
@@ -60,8 +65,9 @@ public class IDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         RemoveHighlight();
     }
 
-    private void RemoveHighlight()
+    public void RemoveHighlight()
     {
+        // Debug.Log("Removing highlight");
         if(activeHighlight != null)
         {
             activeHighlight.DisplayHighlight(false);

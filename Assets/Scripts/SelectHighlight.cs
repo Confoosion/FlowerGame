@@ -5,6 +5,7 @@ public class SelectHighlight : MonoBehaviour
 {
     private GameObject selectHighlight;
     private string HIGHLIGHT_NAME = "SelectHighlight";
+    private bool lockHighlight = false;
 
     void Awake()
     {
@@ -29,5 +30,15 @@ public class SelectHighlight : MonoBehaviour
     public void DisplayHighlight(bool show)
     {
         selectHighlight.SetActive(show);
+    }
+
+    public void LockHighlight(bool _lock)
+    {
+        lockHighlight = _lock;
+    }
+
+    public bool IsHighlightLocked()
+    {
+        return(lockHighlight);
     }
 }

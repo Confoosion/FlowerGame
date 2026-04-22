@@ -2546,7 +2546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3579d04111605e418399d1a696b53ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedSlot
-  flowerObject: {fileID: 7116510605775245305, guid: 1a26c406bfae2fb4ab1f1d628e27b5b1, type: 3}
+  seedObject: {fileID: 732885643603742654, guid: 50707062224202c4baa2b297d0c2bd5d, type: 3}
 --- !u!1 &1771900611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,7 +2951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1894786329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.9056604, g: 0.79579645, b: 0.2007832, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
