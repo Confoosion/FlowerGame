@@ -47,8 +47,8 @@ public class Customer : MonoBehaviour
     {
         foreach(Order.OrderItem item in currentOrder.items)
         {
-            GameObject _item = Instantiate(orderPrefab, orderBubble);
-            _item.GetComponent<Image>().sprite = item.flower.noStemSprite;
+            // GameObject _item = Instantiate(orderPrefab, orderBubble);
+            // _item.GetComponent<Image>().sprite = item.flower.noStemSprite;
         }
     }
 }

@@ -38,7 +38,7 @@ public class SoilPlot : MonoBehaviour, IDropHandler
         Flower flower = dropped.GetComponent<Flower>();
         if(flower != null && !isOccupied)
         {
-            flower.PlantSeed(this);
+            // flower.PlantSeed(this);
             isOccupied = true;
         }
     }

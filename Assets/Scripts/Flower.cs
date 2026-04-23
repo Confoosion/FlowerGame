@@ -24,8 +24,8 @@ public class Flower : MonoBehaviour, IBeginDragHandler
 
     void Start()
     {
-        flowerImage.sprite = flower.seedSprite;
         currentStage = flower.stages[currentStageIndex];
+        flowerImage.sprite = currentStage.stageSprite;
     }
 
     void Update()
@@ -44,15 +44,15 @@ public class Flower : MonoBehaviour, IBeginDragHandler
         }
     }
 
-    public void PlantSeed(SoilPlot plot)
-    {
-        if(!finishedGrowing)
-        {
-            isPlanted = true;
-            currentPlot = plot;
-            UpdateImage(currentStage);
-        }
-    }
+    // public void PlantSeed(SoilPlot plot)
+    // {
+    //     if(!finishedGrowing)
+    //     {
+    //         isPlanted = true;
+    //         currentPlot = plot;
+    //         UpdateImage(currentStage);
+    //     }
+    // }
 
     public void NextStage()
     {
@@ -71,15 +71,15 @@ public class Flower : MonoBehaviour, IBeginDragHandler
         }
     }
 
-    public void ShearFlower()
-    {
-        if(finishedGrowing)
-        {
-            flowerImage.sprite = flower.noStemSprite;
-            flowerImage.SetNativeSize();
-            hasStem = false;
-        }
-    }
+    // public void ShearFlower()
+    // {
+    //     if(finishedGrowing)
+    //     {
+    //         flowerImage.sprite = flower.noStemSprite;
+    //         flowerImage.SetNativeSize();
+    //         hasStem = false;
+    //     }
+    // }
 
     private void UpdateImage(FlowerSO.FlowerStage stage)
     {
@@ -91,7 +91,7 @@ public class Flower : MonoBehaviour, IBeginDragHandler
     {
         finishedGrowing = true;
 
-        flowerImage.sprite = flower.finishedSprite;
+        // flowerImage.sprite = flower.finishedSprite;
         flowerImage.SetNativeSize();
 
         Debug.Log("Flower is fully grown!");

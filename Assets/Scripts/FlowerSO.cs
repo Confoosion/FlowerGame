@@ -11,8 +11,5 @@ public class FlowerSO : ScriptableObject
         public Sprite stageSprite;
     }
 
-    public Sprite seedSprite;
-    public Sprite finishedSprite;
-    public Sprite noStemSprite;
     public List<FlowerStage> stages = new List<FlowerStage>();
 }
