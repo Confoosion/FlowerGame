@@ -607,7 +607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 300}
+  m_AnchoredPosition: {x: -235, y: 300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &355131537
@@ -1433,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1140
+      value: 1095
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2092,8 +2092,10 @@ GameObject:
   - component: {fileID: 1449449035}
   - component: {fileID: 1449449037}
   - component: {fileID: 1449449036}
+  - component: {fileID: 1449449039}
+  - component: {fileID: 1449449038}
   m_Layer: 5
-  m_Name: WaterBucket
+  m_Name: WateringCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,8 +2117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 460, y: 334}
-  m_SizeDelta: {x: 175, y: 175}
+  m_AnchoredPosition: {x: 460, y: 319}
+  m_SizeDelta: {x: 157, y: 121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449449036
 MonoBehaviour:
@@ -2131,14 +2133,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38416696, g: 0.90961426, b: 0.9150943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c21fdf1d09a67b44caa3fabda300da97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2156,6 +2158,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449449034}
   m_CullTransparentMesh: 1
+--- !u!114 &1449449038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449449034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10c414cb2e73b48908f1c02098c690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ISoilInteractable
+  interactableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1449449039}
+        m_TargetAssemblyTypeName: WateringCan, Assembly-CSharp
+        m_MethodName: UseWateringCan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  overrideHighlightLock: 1
+--- !u!114 &1449449039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449449034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4c567b8a72854d83273404ae563ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WateringCan
 --- !u!1 &1469238772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,7 +3208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1140
+      value: 1095
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3559,8 +3601,10 @@ GameObject:
   - component: {fileID: 2129694004}
   - component: {fileID: 2129694006}
   - component: {fileID: 2129694005}
+  - component: {fileID: 2129694008}
+  - component: {fileID: 2129694007}
   m_Layer: 5
-  m_Name: Fertilizer
+  m_Name: Shovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3583,7 +3627,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 700, y: 334}
-  m_SizeDelta: {x: 175, y: 175}
+  m_SizeDelta: {x: 158, y: 151}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129694005
 MonoBehaviour:
@@ -3598,14 +3642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6981132, g: 0.5767727, b: 0.2733179, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9d7bfc753b3b8ba4ea7dc6c1b43d8539, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3623,6 +3667,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129694003}
   m_CullTransparentMesh: 1
+--- !u!114 &2129694007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129694003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10c414cb2e73b48908f1c02098c690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  interactableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2129694008}
+        m_TargetAssemblyTypeName: Shovel, Assembly-CSharp
+        m_MethodName: UseShovel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  overrideHighlightLock: 1
+--- !u!114 &2129694008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129694003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c677f731d25de45a81c9587c097324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!224 &2759505032660000595 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
@@ -3710,7 +3794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1140
+      value: 1095
       objectReference: {fileID: 0}
     - target: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
       propertyPath: m_SizeDelta.y

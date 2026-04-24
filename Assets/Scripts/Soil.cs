@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 public class Soil : MonoBehaviour, IDropHandler
 {
     [SerializeField] private GameObject plant;
+    [SerializeField] private bool isWatered = false;
     private SelectHighlight selectHighlight;
 
     void Awake()
@@ -20,5 +21,23 @@ public class Soil : MonoBehaviour, IDropHandler
             plant = droppedSeed.PlantSeed(transform);
             selectHighlight.LockHighlight(true);
         }
+    }
+
+    public GameObject GetPlant()
+    {
+        return(plant);
+    }
+
+    public void RemovePlant()
+    {
+        Destroy(plant);
+        plant = null;
+
+        Debug.Log("Removed plant");
+    }
+
+    public void WaterSoil()
+    {
+        isWatered = true;
     }
 }
