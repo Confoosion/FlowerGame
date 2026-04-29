@@ -1,38 +1,24 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SeedSlot : MonoBehaviour, IDropHandler
+public class SeedSlot : MonoBehaviour
 {
-    [SerializeField] private GameObject seedObject;
+    [SerializeField] private ItemData _data;
+    [SerializeField] private GameObject _visualPrefab;
     // [SerializeField] private GameObject flowerObject;
-
-    private GameObject spawnedObject;
+    private Button _button;
 
     void Start()
     {
-        RefillSlot();
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(OnClicked);
     }
 
-    // void Update()
-    // {
-    //     if(spawnedObject.GetComponent<IDraggable>().IsDragging())
-    //     {
-    //         RefillSlot();
-    //     }
-    // }
-
-    public void RefillSlot()
+    void OnClicked()
     {
-        spawnedObject = Instantiate(seedObject, transform.position, Quaternion.identity, transform);
-    }
+        if(PlayerHand.Singleton.heldItem != null)
+            return;
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        GameObject dropped = eventData.pointerDrag;
-        SeedBag seed = dropped.GetComponent<SeedBag>();
-        if(seed != null && seed.GetSeedBagSO() == seedObject.GetComponent<SeedBag>().GetSeedBagSO())
-        {
-            Destroy(dropped);
-        }
+        PlayerHand.Singleton.TryPickUp(_data, _visualPrefab);
     }
 }
