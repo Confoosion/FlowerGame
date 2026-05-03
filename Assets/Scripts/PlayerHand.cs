@@ -5,6 +5,7 @@ public class PlayerHand : MonoBehaviour
     public static PlayerHand Singleton { get; private set; }
 
     public ItemData heldItem { get; private set; }
+    [SerializeField] private Transform gameplayCanvas;
     private GameObject heldVisual;
 
     void Awake()
@@ -17,34 +18,36 @@ public class PlayerHand : MonoBehaviour
     {
         if(heldVisual != null)
         {
-            heldVisual.transform.position = GetWorldMousePos();
-        }   
+            heldVisual.transform.position = Input.mousePosition;
+        }
     }
 
-    public bool TryPickUp(ItemData item, GameObject visual)
+    public void Interact(GameObject obj, Item item)
     {
         if(heldItem != null)
-            return(false);
-
-        heldItem = item;
-        heldVisual = Instantiate(visual);
-        return(true);
+        {
+            if(item.HasAction() && item.CanUseAction())
+                item.UseItem();
+            else
+                DropItem(obj, item);
+        }
+        else
+        {
+            PickUpItem(obj, item);
+        }
     }
 
-    public ItemData Release()
+    private void PickUpItem(GameObject obj, Item item)
     {
-        ItemData item = heldItem;
-        Destroy(heldVisual);
-        heldItem = null;
+        heldVisual = obj;
+        heldItem = item.GetData();
+    }
+
+    private void DropItem(GameObject obj, Item item)
+    {
         heldVisual = null;
-        return(item);
+        heldItem = null;
     }
 
-    private Vector3 GetWorldMousePos()
-    {
-        Vector3 screenPos = Input.mousePosition;
-        screenPos.z = 10f;
-
-        return(Camera.main.ScreenToWorldPoint(screenPos));
-    }
+    public Transform GetGameplayCanvas() => gameplayCanvas;
 }

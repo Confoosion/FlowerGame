@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedSlot
   _data: {fileID: 11400000, guid: cee7245956ee77941add3c70432ffdfb, type: 2}
-  _visualPrefab: {fileID: 0}
+  _seedPrefab: {fileID: 4127963111258631365, guid: 6312ea4a6b5f04843b1118a41771fca5, type: 3}
 --- !u!1 &265260017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1722,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 470165643012160858, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2227,8 +2228,8 @@ GameObject:
   - component: {fileID: 1449449035}
   - component: {fileID: 1449449037}
   - component: {fileID: 1449449036}
+  - component: {fileID: 1449449040}
   - component: {fileID: 1449449039}
-  - component: {fileID: 1449449038}
   m_Layer: 5
   m_Name: WateringCan
   m_TagString: Untagged
@@ -2293,34 +2294,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449449034}
   m_CullTransparentMesh: 1
---- !u!114 &1449449038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449449034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a10c414cb2e73b48908f1c02098c690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ISoilInteractable
-  interactableEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1449449039}
-        m_TargetAssemblyTypeName: WateringCan, Assembly-CSharp
-        m_MethodName: UseWateringCan
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  overrideHighlightLock: 1
 --- !u!114 &1449449039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,6 +2306,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad4c567b8a72854d83273404ae563ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WateringCan
+  _waterPerSecond: 2
+--- !u!114 &1449449040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449449034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162ba81af30118640933ca61cfe04961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  _data: {fileID: 11400000, guid: 353085747071e654588321ed01a76f22, type: 2}
+  itemAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1449449039}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1469238772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2368,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 493388775}
+  - {fileID: 2048670808}
   m_Father: {fileID: 344112532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2433,7 +2436,7 @@ MonoBehaviour:
   m_ScrollSensitivity: 5
   m_Viewport: {fileID: 1469238773}
   m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 2048670809}
   m_HorizontalScrollbarVisibility: 0
   m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0
@@ -2483,6 +2486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265f572aa3e17e548a0773a4a2432902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gameplayCanvas: {fileID: 667729151}
 --- !u!4 &1552122219
 Transform:
   m_ObjectHideFlags: 0
@@ -3462,6 +3466,131 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}
   m_PrefabInstance: {fileID: 1970710426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2048670807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048670808}
+  - component: {fileID: 2048670811}
+  - component: {fileID: 2048670810}
+  - component: {fileID: 2048670809}
+  m_Layer: 5
+  m_Name: Scrollbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2048670808
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048670807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1469238773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 200, y: 0}
+  m_SizeDelta: {x: 20, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2048670809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048670807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2048670810}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 0
+  m_Value: 1
+  m_Size: 0.5862069
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2048670810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048670807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2048670811
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048670807}
+  m_CullTransparentMesh: 1
 --- !u!1 &2065923127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,7 +3820,6 @@ GameObject:
   - component: {fileID: 2129694004}
   - component: {fileID: 2129694006}
   - component: {fileID: 2129694005}
-  - component: {fileID: 2129694008}
   - component: {fileID: 2129694007}
   m_Layer: 5
   m_Name: Shovel
@@ -3772,7 +3900,7 @@ MonoBehaviour:
   interactableEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2129694008}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Shovel, Assembly-CSharp
         m_MethodName: UseShovel
         m_Mode: 1
@@ -3785,18 +3913,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   overrideHighlightLock: 1
---- !u!114 &2129694008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129694003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c677f731d25de45a81c9587c097324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!224 &2759505032660000595 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2465366187764589459, guid: f3d8b5eaf3024ee44bc0400bbecf472c, type: 3}

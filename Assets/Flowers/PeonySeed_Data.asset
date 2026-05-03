@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa459f3fc3e299d458e1f9d43cceaadf, type: 3}
-  m_Name: Seed_Peony
+  m_Name: PeonySeed_Data
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Peony Seeds
+  itemName: Peony Seed
   icon: {fileID: 21300000, guid: 47854dfac5e96de4bbedcc63c67e9a14, type: 3}
   type: 0
   useTime: 0

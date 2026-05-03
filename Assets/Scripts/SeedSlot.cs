@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SeedSlot : MonoBehaviour
 {
     [SerializeField] private ItemData _data;
-    [SerializeField] private GameObject _visualPrefab;
+    [SerializeField] private GameObject _seedPrefab;
     // [SerializeField] private GameObject flowerObject;
     private Button _button;
 
@@ -19,6 +19,9 @@ public class SeedSlot : MonoBehaviour
         if(PlayerHand.Singleton.heldItem != null)
             return;
 
-        PlayerHand.Singleton.TryPickUp(_data, _visualPrefab);
+        GameObject seed = Instantiate(_seedPrefab, PlayerHand.Singleton.GetGameplayCanvas());
+        PlayerHand.Singleton.Interact(seed, seed.GetComponent<Item>());
+
+        // PlayerHand.Singleton.TryPickUp(_data, _visualPrefab);
     }
 }
