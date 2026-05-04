@@ -2,6 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class Soil : MonoBehaviour
 {
+    public void SetSeed(GameObject flower)
+    {
+        Debug.Log("Setting seed");
+        return;
+    }
     // [SerializeField] private GameObject plant;
     // [SerializeField] private bool isWatered = false;
     // private SelectHighlight selectHighlight;

@@ -5,8 +5,5 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public Sprite icon;
-    public ItemType type;
     public float useTime;
 }
-
-public enum ItemType { Seed, Flower, WateringCan, Shovel }

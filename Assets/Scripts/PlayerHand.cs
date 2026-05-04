@@ -1,12 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class PlayerHand : MonoBehaviour
 {
     public static PlayerHand Singleton { get; private set; }
 
-    public ItemData heldItem { get; private set; }
+    public Item heldItem { get; private set; }
     [SerializeField] private Transform gameplayCanvas;
     private GameObject heldVisual;
+
+    private PointerEventData eventData;
+    private List<RaycastResult> results;
 
     void Awake()
     {
@@ -20,6 +26,12 @@ public class PlayerHand : MonoBehaviour
         {
             heldVisual.transform.position = Input.mousePosition;
         }
+
+        eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Mouse.current.position.ReadValue();
+
+        results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
     }
 
     public void Interact(GameObject obj, Item item)
@@ -40,7 +52,7 @@ public class PlayerHand : MonoBehaviour
     private void PickUpItem(GameObject obj, Item item)
     {
         heldVisual = obj;
-        heldItem = item.GetData();
+        heldItem = item;
     }
 
     private void DropItem(GameObject obj, Item item)
@@ -50,4 +62,5 @@ public class PlayerHand : MonoBehaviour
     }
 
     public Transform GetGameplayCanvas() => gameplayCanvas;
+    public List<RaycastResult> GetHandCast() => results;
 }
